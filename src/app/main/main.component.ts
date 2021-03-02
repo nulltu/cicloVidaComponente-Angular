@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -23,9 +23,15 @@ export class MainComponent implements OnInit {
     console.log("soy el afterViewInit") 
   }
 
-  ngOnChanges(){
+  ngOnChanges(changes: SimpleChange){
     console.log("estoy en el ngOnChanges")
     console.log(`Texto: ${this.texto}`);
+
+    console.log(changes['texto']);
+
+
+    // console.log(`Valor anterior: ${changes["texto"].previousValue}. Valor actual: 
+    // ${changes["texo"].current}`)
     
   }
 
